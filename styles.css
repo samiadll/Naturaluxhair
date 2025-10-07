@@ -1,0 +1,158 @@
+/* ---------- Variables ---------- */
+:root {
+  --bg: #fbf8f5;
+  --text-dark: #3c2e2a;
+  --gold-1: #fff7e6;
+  --gold-2: #f2d7a0;
+  --gold-3: #d3a55a;
+  --gold-4: #b07a3d;
+  --accent: linear-gradient(
+    135deg,
+    var(--gold-1),
+    var(--gold-2),
+    var(--gold-3),
+    var(--gold-4)
+  );
+}
+
+/* ---------- Base ---------- */
+body {
+  background: radial-gradient(circle at 50% 30%, #fdfaf6, #f4ede5);
+  font-family: "Inter", sans-serif;
+  color: var(--text-dark);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ---------- Container ---------- */
+.gallery-container {
+  max-width: 1100px;
+  width: 90%;
+  text-align: center;
+  padding: 40px 0;
+}
+
+.title {
+  font-family: "Playfair Display", serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 10px;
+}
+
+.title span {
+  background: var(--accent);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #7a6a5e;
+  margin-bottom: 40px;
+}
+
+/* ---------- Grid ---------- */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  justify-items: center;
+}
+
+/* ---------- Card ---------- */
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 28px 22px 32px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06),
+    inset 0 1px 0 rgba(255, 255, 255, 0.7);
+  transition: all 0.35s ease;
+  width: 100%;
+  max-width: 320px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 24px rgba(176, 122, 61, 0.25);
+}
+
+.card h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 22px;
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 8px;
+}
+
+.card p {
+  font-size: 15px;
+  color: #77685a;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+/* ---------- Gold Button ---------- */
+.gold-btn {
+  display: inline-block;
+  padding: 10px 22px;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  color: #3c2e2a;
+  background: var(--accent);
+  border: none;
+  border-radius: 40px;
+  text-decoration: none;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 3px 8px rgba(176, 122, 61, 0.25);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gold-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(176, 122, 61, 0.35);
+}
+
+/* Effet de brillance */
+.gold-btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -70%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.7) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transform: skewX(-20deg);
+  animation: shine 3s infinite;
+}
+
+@keyframes shine {
+  0% {
+    left: -70%;
+  }
+  100% {
+    left: 130%;
+  }
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 600px) {
+  .title {
+    font-size: 30px;
+  }
+  .subtitle {
+    font-size: 14px;
+  }
+}
